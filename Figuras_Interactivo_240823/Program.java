@@ -30,7 +30,8 @@ public class Program {
 			// Obtaining the decision from the user
 			String calChoice = calcChoice.nextLine();
 			int scannedCalc = Integer.parseInt(calChoice);
-			
+
+			// Printing the desired parameter
 			Square mySquare = new Square((float)scannedParam, scannedCalc);
 			mySquare.printParam();
 			
@@ -47,7 +48,8 @@ public class Program {
 			// Obtaining the decision from the user
 			String calChoice = calcChoice.nextLine();
 			int scannedCalc = Integer.parseInt(calChoice);
-			
+
+			// Printing the desired parameter
 			Circle myCircle = new Circle((float)scannedParam, scannedCalc);
 			myCircle.printParam();
 			
