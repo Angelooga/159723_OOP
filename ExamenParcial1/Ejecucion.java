@@ -7,12 +7,15 @@ public class Ejecucion {
 	
 	public void iniciarPrograma() {
 		
+		// Esta bandera indica si hay que seguir dentro del ciclo o no
 		boolean flag = true;
 		do {
+			// Haciendo que el usuario introduzca su palabra u oración
 			System.out.println("Por favor, introduzca una oración o palabra: ");
 			String usarOracion = oracion.nextLine();
 			Palabras oracionUsar = new Palabras(usarOracion);
 			
+			// Mostrando opciones al usuario
 			System.out.println("¿Cómo desea manipularla?\n"
 					+ "1. Convertir la primera letra en mayúscula\n"
 					+ "2. Convertir todas las vocales en mayúsculas\n"
@@ -20,6 +23,7 @@ public class Ejecucion {
 					+ "4. Comprobar si es palíndromo o no\n"
 					+ "5. Ejecutar función secreta (Fizz Buzz)\n"
 					+ "0. Salir");
+			// Guardando la elección del usuario
 			String userChoice = choice.nextLine();
 			int intChoice = Integer.parseInt(userChoice);
 			
