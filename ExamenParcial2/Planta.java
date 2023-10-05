@@ -1,4 +1,3 @@
-package examenIntento2;
 
 public class Planta extends Pokemon {
 	
