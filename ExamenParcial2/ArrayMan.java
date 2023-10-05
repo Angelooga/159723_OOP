@@ -1,4 +1,3 @@
-package examenIntento2;
 
 import java.util.Random;
 
