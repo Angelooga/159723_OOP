@@ -1,4 +1,3 @@
-package examenIntento2;
 
 public abstract class Pokemon {
 	
