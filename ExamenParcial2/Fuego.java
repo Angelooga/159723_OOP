@@ -1,4 +1,3 @@
-package examenIntento2;
 
 public class Fuego extends Pokemon {
 
