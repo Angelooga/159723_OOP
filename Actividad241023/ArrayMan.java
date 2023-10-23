@@ -1,4 +1,3 @@
-package actividad191023;
 
 import java.util.Random;
 
