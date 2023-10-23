@@ -1,4 +1,3 @@
-package actividad191023;
 
 public class Fuego extends Pokemon {
 
