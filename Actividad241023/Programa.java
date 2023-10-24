@@ -1,6 +1,8 @@
+package actividad191023;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Programa {
@@ -59,7 +61,13 @@ public class Programa {
 			
 			menu.preguntarOtraVez();
 			
-			flag = eleccion.nextInt();
+			try {
+				flag = eleccion.nextInt();
+			}catch(InputMismatchException e) {
+				flag = 0;
+			}
+			
+			
 			
 		}while(flag != 0);
 		

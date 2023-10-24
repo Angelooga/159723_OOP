@@ -1,11 +1,12 @@
+package actividad191023;
 
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 import java.util.Random;
 
 public class Juego {
 
-	public int iniciarJuego() {
+	public int iniciarJuego()  {
 		
 		// Este random es para asignar el pokemon a ser adivinado
 		Random assign = new Random();
@@ -25,6 +26,7 @@ public class Juego {
 		int contadorA = 0;
 		int contadorF = 0;
 		int contadorP = 0;
+		int intEleccion = 0;
 		// Índice de los ataques
 		int[] indiceAtaque = {0,1,2,3,4,5,6,7};
 		ArrayMan randomAtaque = new ArrayMan(indiceAtaque);
@@ -38,6 +40,7 @@ public class Juego {
 		
 		// Nombre del pokemon a adivinar
 		String pokemonAdivinar;
+		String finalChoice = "";
 		
 		Boolean[] pokemonesImprimir = {true,true,true,true,true,true,true,true,true,true,true,
 				true,true,true,true};
@@ -93,14 +96,27 @@ public class Juego {
 			 * Este número tiene que ver con lo que el usuario quiere adivinar, si algún ataque
 			 * o el elemento
 			 */
-			int intEleccion = eleccion.nextInt() - 1;
+			
+			try {
+				intEleccion = eleccion.nextInt() - 1;
+			}catch(InputMismatchException e) {
+				System.out.print("Opción inválida. ");
+				eleccion.next();
+				continue;
+			}
 			
 			if(intEleccion == 0) {
 				
 				//Si el usuario quiso adivinar el elemento, se ingresa a este bloque
 				menu.elementoPregunta();
 				// Elección del elemento
-				intEleccion = eleccion.nextInt() - 1; 
+				try {
+					intEleccion = eleccion.nextInt() - 1;
+				}catch(InputMismatchException e) {
+					System.out.print("Opción inválida. ");
+					eleccion.next();
+					continue;
+				}
 				
 				// Se compara el elemento adivinado con el elemento del pokemon a adivinar
 				if(intEleccion == pokeLista[indiceAdivinar].getClase()) {
@@ -136,7 +152,13 @@ public class Juego {
 				//Si el usuario quiso adivinar el ataque, se ingresa a este bloque
 				menu.ataquesPregunta();
 				// Elección del ataque
-				intEleccion = eleccion.nextInt() - 1;
+				try {
+					intEleccion = eleccion.nextInt() - 1;
+				}catch(InputMismatchException e) {
+					System.out.print("Opción inválida. ");
+					eleccion.next();
+					continue;
+				}
 				
 				if(checkAtaques.checkItem(intEleccion)) {
 					System.out.println("\nEs correcto, el pokemón tiene ese ataque que dices.\n");
@@ -203,7 +225,14 @@ public class Juego {
 				+ "\nPor favor, escribe el nombre del pokemón tal y como se muestra.\n");
 		
 		// Almacenando la conjetura del usuario
-		String finalChoice = eleccionFinal.nextLine();
+		
+		try {
+			finalChoice = eleccionFinal.nextLine();
+		}catch(InputMismatchException e) {
+			System.out.println("\nTe has equivocado!, estaba pensando en "
+					+ pokemonAdivinar + " ¡¡¡Yo He Ganado!!!");
+			return 0;
+		}
 		
 		// Comparando la conjetura con el pokemon a adivinar
 		if(finalChoice.equals(pokemonAdivinar)) {
